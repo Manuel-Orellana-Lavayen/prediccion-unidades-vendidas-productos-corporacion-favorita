@@ -1,59 +1,48 @@
-# clasificacion-multicategoria-resenas-espanol
+# prediccion-unidades-vendidas-productos-corporacion-favorita
 
 ## Aplicacion
 
 ### librerías
-- scikit-learn
-- pandas
-- numpy
-- spacy
-- sentence-transformers
-- fastapi
-- uvicorn
-- pydantic
-- cloudpathlib
-- joblib
-- plotly
-- requests
-- streamlit
+- Streamlit
+- FastAPI
+- Uvicorn
+- XGBoost
+- SHAP	
+- Polars	
+- Pandas	
+- SciPy	
+- Matplotlib	
+- Plotly	
+- Joblib	
+- Requests	
+- Pydantic	
 
 ```
 ├── Aplicación/
 │   │
 │   ├── API/
 │   │   │
-│   │   ├── CreacionPipelines/
-│   │   │   │
-│   │   │   ├── Pipelines/
-│   │   │   │   └── usar_pipelines.py
-│   │   │   │       └─ Funciones para utilizar los pipelines de predicción.
+│   │   ├── Elementos/
 │   │   │   │
 │   │   │   ├── Recursos/
-│   │   │   │   │
-│   │   │   │   ├── Clases/
-│   │   │   │   │   ├── ClasesAdaptadorasEnsamble.py
-│   │   │   │   │   ├── ClasesEnvoltorio.py
-│   │   │   │   │   └── ClasesPredictoras.py
-│   │   │   │   │       └─ Clases auxiliares utilizadas por los modelos.
-│   │   │   │   │
 │   │   │   │   ├── EstilosGraficosPlotly/
 │   │   │   │   │   └── EstilosPlotly.py
 │   │   │   │   │       └─ Define estilos reutilizables para gráficos Plotly.
 │   │   │   │   │
-│   │   │   │   ├── Limpieza/
-│   │   │   │   │   └── FuncionesLimpieza.py
-│   │   │   │   │       └─ Funciones utilizadas para el preprocesamiento del texto.
-│   │   │   │   │
-│   │   │   │   ├── ModelosClasificacion/
+│   │   │   │   ├── ModelosRegresion/
 │   │   │   │   │   └── Modelos.py
-│   │   │   │   │       └─ Carga los modelos de clasificación entrenados.
+│   │   │   │   │       └─ Carga los modelos de regresión entrenados.
 │   │   │   │   │
-│   │   │   │   └── Vectorizacion/
-│   │   │   │       └── Vectorizadores.py
-│   │   │   │           └─ Carga los recursos necesarios para vectorizar textos.
-│   │   │   │
-│   │   │   ├── Crear Pipelines.py
-│   │   │   │   └─ Construye los pipelines utilizando modelos, vectorizadores y funciones de procesamiento.
+│   │   │   │   └── PreparacionDatos/
+│   │   │   │       ├── BaseConocimiento/
+│   │   │   │       │   └─ Aquí se descargan/colocan los archivos que sirven como base de conocimiento para predicciones.
+│   │   │   │       │    
+│   │   │   │       ├── CodificadoresCategoricas/
+│   │   │   │       │   └─ Aquí se descargan/colocan los archivos que mapean los datos para la predicción de los modelos.
+│   │   │   │       │   
+│   │   │   │       └── FuncionesPreparacionDatos.py
+│   │   │   │           └─ Contiene las funciones necesarias para realizar las predicciones de los modelos.
+│   │   │   │   
 │   │   │   └── Instalando Recursos.py
 │   │   │       └─ Instala los recursos desde un repositorio de huggingface en caso de que falten.
 │   │   │
@@ -71,27 +60,25 @@
 │       ├── static/
 │       │   └─ Fuentes utilizadas por la interfaz.
 │       │
-│       ├── Interfaz_aplicacion.py
-│       │   └─ Código principal de la interfaz gráfica.
-│       │
-│       └── ArchivoEjemplo.csv
-│           └─ Archivo de ejemplo para probar la aplicación.
+│       └── Interfaz_aplicacion.py
+│           └─ Código principal de la interfaz gráfica.
+│       
 │
 ├── requirements_aplicación.txt
 │    └─ Dependencias necesarias para ejecutar la aplicación.
 ├── Dockerfile_aplicacion
 │    └─ Dockfile para ejecutar la aplicación.
 ├── Dockerfile_modificacion
-│    └─ Dockfile para modificar algunos aspectos de la aplicación (Especialmente para crear pipelines).
+│    └─ Dockfile para modificar algunos aspectos de la aplicación(No es estrictamente necesario ya que se puede hacer en local).
 └── start.sh
      └─ Comandos que ejecutan diferentes archivos del proyecto para encender la aplicación cuando se usa el Dockerfile_aplicacion
 ```
 
 
 ### Instalación y ejecución de Aplicación
-1. Crear una imagen del contenedor usando Dockerfile_aplicacion
-2. Crear un contenedor de la imagen dejando expuesto el puerto indicado en el Dockerfile_aplicacion
-3. Abrir la interfaz de streamlit con el localhost en cualquier buscador
+1. Crear una imagen del contenedor usando Dockerfile_aplicacion (ejemplo: docker build -f .\Dockerfile_aplicacion -t aplicacion_imagen .)
+2. Crear un contenedor de la imagen dejando expuesto el puerto indicado en el Dockerfile_aplicacion (ejemplo: docker run --name aplicacion_nombre -p 7861:7860 aplicacion_imagen )
+3. Abrir la interfaz de streamlit con el localhost en cualquier buscador dependiendo del apodo que le haya colocado a el puerto. Tambien puede consultar su direccion ip del pc con ipconfig(windows) y abrir la aplicacion en su red local (Ejemplo Localhost: http://localhost:7861) (Ejemplo Red Local: http://192.168.100.5:7861)
 
 ## Autor
 Manuel Elias Orellana Lavayen 
