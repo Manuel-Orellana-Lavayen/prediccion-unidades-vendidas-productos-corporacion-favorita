@@ -115,7 +115,7 @@ La fase uno abarca toda la preparación de los datos:
 ### Fase 2
 
 1. Crear una imagen del contenedor usando Dockerfile (EJEMPLO: docker build -f .\Dockerfile -t notebooks-proyecto-prediccion-productos .) (Dato: Si colocas otro nombre diferente a la imagen debe ser modificada en el devcontainer.json)
-2. Ejecutar el devcontainer.json (Si usas Pycharm puedes hacerlo con la herramienta de "Remote Development")
+2. Ejecutar el devcontainer.json (Si usas Pycharm puedes hacerlo con la herramienta de "Remote Development" asegurandote de tener git instalado en tu pc)
 4. Dentro del contenedor copiar los archivos pixi.toml y pixi.lock a la carpeta llamada "entorno_virtual"
 5. Abrir una terminal para esa carpeta y ejecutar el siguiente comando para instalar en entorno virtual .pixi  -> "pixi install"
 6. Configurar el interprete dentro de nuestro contenedor
