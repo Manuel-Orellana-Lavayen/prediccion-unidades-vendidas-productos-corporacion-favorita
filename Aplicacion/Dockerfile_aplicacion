@@ -1,0 +1,29 @@
+FROM python:3.12.10-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    ca-certificates \
+    git \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY requirements_aplicación.txt .
+RUN pip install --no-cache-dir -r requirements_aplicación.txt
+
+COPY . .
+
+# Puerto de conección
+EXPOSE 7860
+
+COPY start.sh .
+
+# Le da al archivo start.sh permiso de ejecución dentro de la imagen Docker.
+RUN chmod +x start.sh
+
+CMD ["./start.sh"]

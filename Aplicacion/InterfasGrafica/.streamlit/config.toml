@@ -1,0 +1,42 @@
+[server] # USR FUENTES LOCALES
+enableStaticServing = true
+
+# FUENTES LOCALES
+[[theme.fontFaces]]
+family = "monospac"
+url = "app/static/monospac.otf"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "GaiteraBall-XPnZ"
+url = "app/static/GaiteraBall-XPnZ.ttf"
+style = "normal"
+
+# CONFIGURACIÓN DE COLORES Y FUENTES
+[theme]
+primaryColor = "#4EEDE9" # COLOR DE SELECCIONES MULTIPLES, ETC
+backgroundColor = "#04021F" # COLOR DE FONDO
+secondaryBackgroundColor = "#1D375E" # COLOR DE FONDO DE ELEMENTOS
+font = "monospac" # FUENTE BASE
+textColor = "#FFFFFF" # COLOR DE TEXTO BASE
+baseFontSize = 20 # TAMAÑO DE FUNETE GENERAL
+baseFontWeight = 300 # GROSOR DE FUENTE GENERAL
+linkColor = "#51EDE5" # COLOR DE ENLACES
+linkUnderline = true # ENLACES SUBRAYADOS
+borderColor = "#51B3ED" # COLOR DE BORDE DE LAS CAJAS
+dataframeBorderColor = "#51B3ED" # COLOR DE BORDES DE LOS DATAFRAMES
+dataframeHeaderBackgroundColor = "#1D375E" # FONDO DE CABECERA DE DATAFRAMES
+showWidgetBorder = true # ACTIVAR BORDE DE LAS CAJAS
+baseRadius = "1rem" # NIVEL DE REDONDEDO DE LAS ESQUINAS DE LOS ELEMENTOS
+buttonRadius = "0.7rem" #  NIVEL DE REDONDEO DE BOTONES
+headingFont = "GaiteraBall-XPnZ" #FUENTE TITULOS
+headingFontSizes = ["2.5rem", "2rem", "1.5rem", "1rem", "1.25rem", "1rem"] # TAMAÑO FUENTE TITULOS
+headingFontWeights = [400, 350, 300, 250, 200, 150] # GROSOR FUENTE TITULOS
+codeFont = "monospac" # FUENTE CODIGO
+codeFontSize = "14px" # TAMAÑO FUENTE CODIGO
+codeBackgroundColor = "#000000" # FONDO DE TEXTO DE CODIGO
+showSidebarBorder = false # lINEA SEPARADORA ENTRE BARRA SIDEBAR Y PAGINA PRINCIPAL
+
+[theme.sidebar]
+backgroundColor = "#0E0B3B"          # Darker blue-purple
+secondaryBackgroundColor = "#000000" # Slightly lighter sections

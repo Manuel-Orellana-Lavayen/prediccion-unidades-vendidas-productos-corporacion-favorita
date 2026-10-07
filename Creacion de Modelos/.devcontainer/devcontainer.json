@@ -1,0 +1,21 @@
+{
+  "name": "proyecto-prediccion-productos",
+  "image": "notebooks",
+
+  // Monta el directorio de trabajo local en /espacio_trabajo dentro del contenedor
+  "workspaceMount": "source=${localWorkspaceFolder},target=/espacio_trabajo,type=bind",
+  "workspaceFolder": "/espacio_trabajo",
+
+  // Argumentos equivalentes a --gpus all, --cpus y --memory
+  "runArgs": [
+    "--name=proyecto-prediccion-productos",
+    "--gpus=all",
+    "--cpus=12",
+    "--memory=23040m",
+    "--memory-swap=23040m",
+    "--oom-kill-disable=false"
+  ],
+
+  // Inicia la terminal interactiva
+  "overrideCommand": false
+}

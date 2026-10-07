@@ -1,0 +1,38 @@
+[workspace]
+channels = ["rapidsai",
+            "conda-forge"]
+name = "Creacion de Modelos"
+platforms = [
+    { name = "my-linux-64", platform = "linux-64", cuda = "12.9" }
+]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.12.10.*"
+cuda-version = "==12.9"
+cuml = ">=26, <27"
+py-xgboost-gpu = ">=2.0"
+scikit-learn = "==1.9.0"
+fsspec = "<=2026.6.0"
+
+
+[pypi-dependencies]
+torch = { version = "*", index = "https://download.pytorch.org/whl/cu129" }
+cudf-polars-cu12 = "*"
+
+ipykernel = ">=7.3.0, <8"
+ipywidgets = ">=8,<9"
+pandas = ">=3, <4"
+pingouin = "*"
+statsmodels = ">=0.15.0"
+polars = ">=1.7"
+spacy = ">=3.8,<4"
+datasets = ">=4.8.5,<6"
+scipy = ">=1.17,<2"
+matplotlib = ">=3.11.1"
+
+tqdm = ">=4,<5"
+skops = ">=0.10.0"
+watermark = ">=2.6,<3"

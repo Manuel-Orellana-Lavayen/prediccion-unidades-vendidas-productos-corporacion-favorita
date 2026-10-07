@@ -1,0 +1,18 @@
+FROM python:3.12.10-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONPATH=/espacio_trabajo
+
+RUN apt-get update && apt-get install -y \
+    curl \
+    ca-certificates \
+    git \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /espacio_trabajo
+
+# Puerto de conección
+EXPOSE 7860
+
+CMD ["bash"]
