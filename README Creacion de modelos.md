@@ -3,19 +3,19 @@
 ## Desarrollo de modelos
 
 ### librerías
-Polars	
-Pandas	
-NumPy	
-PyArrow	
-scikit-learn	
-SciPy	
-statsmodels	
-Pingouin	
-Matplotlib	
-Seaborn	
-xgboost-gpu 
-cudf-polars-cu12 
-watermark 
+- Polars	
+- Pandas	
+- NumPy	
+- PyArrow	
+- scikit-learn	
+- SciPy	
+- statsmodels	
+- Pingouin	
+- Matplotlib	
+- Seaborn	
+- xgboost-gpu 
+- cudf-polars-cu12 
+- watermark 
 
 ### Descripción
 Modelo de Machine Learning para predicción a corto plazo (dia siguiente) de unidades vendidas por producto para todos los establecimientos comerciales de Corporación Favorita. Modelo entrenado con datos historicos de 2013 a 2017.
@@ -104,16 +104,22 @@ Crear una aplicación pueda predecir a corto plazo las unidades vendidas por pro
 ## Instalación y ejecución de Creación de Modelos
 
 ### Fase 1
+La fase uno abarca casi todas etapas, exceptuando los notebooks "5-Modelos-Experimentales.ipynb" y "6-Modelos Finales.ipynb".
+La fase uno se recomienda correrla localmente con un entorno virtual venv que tenga python 3.12.10.
+
+La fase uno abarca toda la preparación de los datos:
+1. Colocar los datasets en la carpeta de Datasets/Originales y ejecutar los notebooks correspondientes.
+2. Luego correr los notebooks de Datasets/Modificados  para crear los archivos modificados
+3. Una vez con los archivos modificados, correr los notebooks del 1 al 4
 
 ### Fase 2
 
-1. Crear una imagen del contenedor usando Dockerfile
-2. Abrir la carpeta donde estén todos los archivos de Creacion de Modelos
-3. En la terminal escribir el siguiente comando para crear un contenedor conectado a la carpeta local en base a la imagen ya creada:
-docker run -it --gpus all --cpus="10" --memory="14.5g" --name nombre_contenedor -v "$(pwd):/espacio_trabajo" nombre_imagen
+1. Crear una imagen del contenedor usando Dockerfile (EJEMPLO: docker build -f .\Dockerfile -t notebooks-proyecto-prediccion-productos .) (Dato: Si colocas otro nombre diferente a la imagen debe ser modificada en el devcontainer.json)
+2. Ejecutar el devcontainer.json (Si usas Pycharm puedes hacerlo con la herramienta de "Remote Development")
 4. Dentro del contenedor copiar los archivos pixi.toml y pixi.lock a la carpeta llamada "entorno_virtual"
 5. Abrir una terminal para esa carpeta y ejecutar el siguiente comando para instalar en entorno virtual .pixi  -> "pixi install"
 6. Configurar el interprete dentro de nuestro contenedor
+7. Ejecutar los notebooks restantes "5-Modelos-Experimentales.ipynb" y "6-Modelos Finales.ipynb".
 
 ## Autor
 Manuel Elias Orellana Lavayen 
